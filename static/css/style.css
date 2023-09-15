@@ -1,0 +1,33 @@
+/* 기본 스타일 */
+
+body {
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: red;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 미디어 쿼리를 사용한 반응형 스타일 */
+
+/* 스마트폰 및 태블릿 화면 크기에 대응하는 스타일 */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+/* 작은 화면(모바일)에 대응하는 스타일 */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+}
