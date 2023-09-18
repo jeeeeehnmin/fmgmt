@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 페이지 제목</title>
+    <link rel="shortcut icon"  href="{% static 'img/favicon-256.ico' %}" sizes="256x256">
+    <link rel="icon" href="{% static 'img/favicon-16.ico' %}" sizes="16x16">
+    <link rel="icon" href="{% static 'img/favicon-32.ico' %}" sizes="32x32">
+    <link rel="icon" href="{% static 'img/favicon-48.ico' %}" sizes="48x48">
+    <link rel="icon" href="{% static 'img/favicon-64.ico' %}" sizes="64x64">
+    <link rel="icon" href="{% static 'img/favicon-128.ico' %}" sizes="128x128">
+
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+
+
+
+    <!-- <script type="text/javascript" src="{% static 'js/index.js' %}"></script> -->
+    <!-- <script type="module" src="{% static 'js/index.js' %}"></script> -->
+</head>
+<body>
+    <!-- <h1>Hello World!!!!</h1>
+    <nav>
+        <ul>
+            <li><a href="#">홈</a></li>
+            <li><a href="#">서비스</a></li>
+            <li><a href="#">문의</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>환영합니다!</h2>
+        <p>이곳에 웹 페이지 내용을 추가하세요.</p>
+    </main>
+    <hr> -->
+<div id="wrap">
+    <div id="containter">
+        <div class="form-box">
+            <h2 class="title mb50">수입/지출 입력</h2>
+            <form action="/submit" method="post" id="journalForm"> <!-- /submit은 데이터를 제출할 엔드포인트 URL로 변경하세요 -->
+                <ul class="form-list">
+                    <li class="journal-type mb30">
+                        <div class="radioTab">
+                            <span class="radio">
+                                <input
+                                    type="radio"
+                                    id="q_type_income"
+                                    value="income"
+                                    name="transaction_type"
+                                    onclick="handleRadioChange(this)"
+                                />
+                                <label class="" for="q_type_income">수입</label>
+                            </span>
+                            <span class="radio">
+                                <input
+                                    type="radio"
+                                    id="q_type_outcome"
+                                    value="outcome"
+                                    name="transaction_type"
+                                    checked="checked"
+                                    onclick="handleRadioChange(this)"
+                                />
+                                <label class="" for="q_type_outcome">지출</label>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="journal-date mb30">
+                        <ul>
+                            <li class="mb12"><label for="q_date"><span class="input-required ">날짜</span></label></li>
+                            <li><input type="date" id="q_date" name="q_date" required   placeholder="날짜 선택"></li>
+                        </ul>
+                    </li>
+                    <li class="journal-item mb30">
+                        <ul>
+                            <li class="mb12"><label for="q_item"><span class="input-required ">내용</span></label></li>
+                            <li><input type="text" id="q_item" name="q_item" required class="inputfield"   placeholder="내용을 입력해 주세요."></li>
+                        </ul>
+                    </li>
+                    <li class="journal-amount mb30">
+                        <ul>
+                            <li class="mb12"><label for="q_amount"><span class="input-required ">금액</span></label></li>
+                            <li><input type="text" id="q_amount" name="q_amount" required class="inputfield"   placeholder="금액을 입력해 주세요."></li>
+                        </ul>
+                    </li>
+                    <li class="journal-categories mb30">
+                        <ul>
+                            <li class="mb12"><label for="q_categories"><span class="input-required ">카테고리</span></label></li>
+                            <li><select id="q_categories" name="q_categories" required class="inputfield"   placeholder="카테고리를 선택해 주세요.">
+                                    <option value="">카테고리를 선택해 주세요.</option>
+                                    <optgroup label="Eat">
+                                        <option value="meal">식사</option>
+                                        <option value="coffee">커피/음료</option>
+                                        <option value="dessert">디저트</option>
+                                    </optgroup>
+                                    <optgroup group label="Live">
+                                        <option value="rentfee">월세</option>
+                                        <option value="bank-loan">대출 원리금</option>
+                                        <option value="house-fix">수리비</option>
+
+                                    </optgroup>
+                                    <optgroup group label="Wear">
+                                        <option value="clothes">의류 구입</option>
+                                        <option value="clothes-fix">수선비</option>
+                                     </optgroup>
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="journal-payment-method mb30">
+                        <ul>
+                            <li class="mb12"><label for="q_payment-method"><span class="input-required ">결제 수단</span></label></li>
+                            <li><select id="q_payment-method" name="q_payment-method" required class="inputfield"   placeholder="결제 방법을 선택해 주세요.">
+                                  <option value="">결제 방법을 선택해 주세요.</option>     
+                                    <option value="card">카드</option>
+                                    <option value="cash">현금</option>
+                                    <option value="others">기타</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="journal-memo mb30">
+                        <ul>
+                            <li class="mb12"><label for="q_memo"><span class="input-required ">금액</span></label></li>
+                            <li><textarea id="q_memo" name="q_memo" required    placeholder="메모를 입력해 주세요." class="textinput"></textarea>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="wrap-btn">
+                    <li>  
+                        <button id="btn-reset" type="button" onclick="cancel()">취소</button>
+                        <div id="snackbar-reset" class="snackbar">취소되었습니다.</div>
+                        <!-- <input type="submit" value="저장"> -->
+                   </li>
+                   <li>
+                        <button id="btn-submit" type="button" onclick="formSubmit()">저장</button>
+                        <div id="snackbar-submit" class="snackbar">저장되었습니다.</div>
+                    </li>
+                </ul>    
+            </form>
+            <script type="text/javascript">
+                function cancel() {
+                    var form = document.getElementById("journalForm");
+                    var snackbar=document.getElementById("snackbar-reset");
+                    
+                    if(confirm("정말 취소하시겠습니까? 입력하신 내용이 삭제됩니다.")){
+                        // alert("취소되었습니다.");
+                        form.reset();
+                        snackbar.style.display = "block"
+                        
+                        setTimeout(function(){
+                            snackbar.style.display = "none";
+                        },3000);
+                        
+                    }else{
+                    }
+
+                }
+            </script>
+                        <script type="text/javascript">
+                            function formSubmit() {
+                                var form = document.getElementById("journalForm");
+                                var snackbar=document.getElementById("snackbar-submit");
+
+                                if(confirm("저장하시겠십니까?")){
+                                    // form.submit();
+                                    snackbar.style.display = "block"
+                                    
+                                    setTimeout(function(){
+                                        snackbar.style.display = "none";
+                                    },3000);
+                                    
+                                }else{
+                                }
+            
+                            }
+                        </script>
+            <script type="text/javascript"  >
+                function handleRadioChange(selectedRadio) {
+                    var otherRadio;            
+                    if (selectedRadio.checked) {
+                        if (selectedRadio.id === "q_type_income") {
+                            otherRadio.checked = false;
+                            otherRadio = document.getElementById("q_type_outcome");
+                        } else {
+                            otherRadio.checked = false;
+                            otherRadio = document.getElementById("q_type_income");
+                        }
+                    } else {
+                        otherRadio.checked = true;
+                    }
+                }
+            </script>
+        </div>  
+
+
+        <hr>    
+        <footer>
+            <p class="mb30">&copy; created by <a href="https://www.isntagram.com/jeeeeehnmin" alt="민도의 인스타그램">@jeeeeehnmin</a></p>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
+
