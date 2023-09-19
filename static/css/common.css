@@ -1,41 +1,104 @@
 @charset "utf-8";
 @import './fonts.css';
+@import './variables.css';
 @import './components.css';
 
 
 
-.form-box .title{font-family:'GmarketSans'; font-size:24px; font-weight:700; color:#222; line-height:1.5;}
-
-footer{
-    margin: 0 auto;
-    text-align:center;
-
+.form-box .title {
+    font-family: 'GmarketSans';
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--fmgmt-sys-color-grey000);
+    line-height: 1.5;
 }
 
+
 /********************** reset **********************/
-*,*:after,*:before{box-sizing:border-box;}
-html{-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;overflow-y:scroll}
-html, body{position:relative;-webkit-font-smoothing:antialiased;height:100%}
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, button, address, em, img, small, strong, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, hr, input, textarea, select{margin:0;padding:0;}
-body{margin:0;padding:0;background:#f4eeee;font-family:'GmarketSans','Noto Sans KR', sans-serif;font-size:16px;line-height:1;letter-spacing:-0.04em;word-break:keep-all; color:#222;}
-header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption{display:block;margin:0;padding:0;}
-h1, h2, h3, h4, h5, h6{font-weight:normal;color:#222;line-height:1.35;}
-h2{letter-spacing:-0.04em;}
-ol, ul, li{list-style:none;}
-table{width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed;word-break:break-word;}
-img, button{border:0 none;vertical-align:top;}
-label, button{cursor:pointer;}
-label{vertical-align:top;}
-hr{display:none;height:0;}
-i, em, address{font-style:normal;}
-strong, b{font-weight:700;}
-form, fieldset, iframe{display:block;border:0}
-caption, legend{overflow:hidden;width:0;height:0;margin:0;padding:0;text-indent:-9999em;}
-input, textarea, select{font-family:'Noto Sans KR',sans-serif;font-size:16px;line-height:1;vertical-align:top;}
-input{-webkit-appearance:none;-webkit-border-radius:0;}
-input:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px white inset;}
-button{overflow:visible;display:inline-block;margin:0;padding:0;border:0 none;background:none;font-family:'Noto Sans KR','UttumDotum',sans-serif;vertical-align:top;cursor:pointer;letter-spacing:-0.04em;}
-button::-moz-focus-inner{padding:0;/* border:0 */}
+*, *:after,*:before {box-sizing: border-box;}
+
+html {-webkit-text-size-adjust: none;-moz-text-size-adjust: none;-ms-text-size-adjust: none;overflow-y: scroll}
+html,body {    position: relative;    -webkit-font-smoothing: antialiased;    height: 100%}
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,a,button,address,em,img,small,strong,sub,sup,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,hr,input,textarea,select {margin: 0;padding: 0;}
+body {
+    margin: 0;
+    padding: 0;
+    background:  var(--fmgmt-sys-color-grey700) ;
+    font-family: 'GmarketSans', 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    word-break: keep-all;
+    color: var(--fmgmt-sys-color-grey000);
+}
+
+header,footer,section,article,aside,nav,hgroup,details,menu,figure,figcaption {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+    color: var(--fmgmt-sys-color-grey000);
+    line-height: 1.35;
+}
+
+h2 {letter-spacing: -0.04em;}
+
+ol,ul,li {list-style: none;}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    word-break: break-word;
+}
+
+img, button {border: 0 none; vertical-align: top;}
+
+label,button {cursor: pointer;}
+
+label {vertical-align: top;}
+
+hr { display: none; height: 0;}
+
+i,em,address {font-style: normal;}
+
+strong,b {font-weight: 700;}
+
+form,fieldset,iframe {display: block;border: 0}
+
+caption,legend {
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    text-indent: -9999em;
+}
+
+
+button {
+    overflow: visible;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    background: none;
+    font-family: 'Noto Sans KR', 'UttumDotum', sans-serif;
+    vertical-align: top;
+    cursor: pointer;
+    letter-spacing: -0.04em;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    /* border:0 */
+}
+
 
 
 
@@ -66,10 +129,11 @@ button::-moz-focus-inner{padding:0;/* border:0 */}
 .ml60{margin-left:60px !important;}
 .mb0{margin-bottom:0px !important;}
 .mb10{margin-bottom:10px !important;}
-.mb12{margin-bottom:10px !important;}
+.mb12{margin-bottom:12px !important;}
 .mb15{margin-bottom:15px !important;}
 .mb20{margin-bottom:20px !important;}
 .mb24{margin-bottom:24px !important;}
+.mb25{margin-bottom:25px !important;}
 .mb30{margin-bottom:30px !important;}
 .mb35{margin-bottom:35px !important;}
 .mb40{margin-bottom:40px !important;}

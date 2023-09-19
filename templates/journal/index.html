@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹 페이지 제목</title>
+    <title>민도의 가계부</title>
     <link rel="shortcut icon"  href="{% static 'img/favicon-256.ico' %}" sizes="256x256">
     <link rel="icon" href="{% static 'img/favicon-16.ico' %}" sizes="16x16">
     <link rel="icon" href="{% static 'img/favicon-32.ico' %}" sizes="32x32">
@@ -12,15 +12,9 @@
     <link rel="icon" href="{% static 'img/favicon-64.ico' %}" sizes="64x64">
     <link rel="icon" href="{% static 'img/favicon-128.ico' %}" sizes="128x128">
 
-    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/layout.css' %}">
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components.css' %}">
 
-
-
-    <!-- <script type="text/javascript" src="{% static 'js/index.js' %}"></script> -->
-    <!-- <script type="module" src="{% static 'js/index.js' %}"></script> -->
 </head>
 <body>
     <!-- <h1>Hello World!!!!</h1>
@@ -88,8 +82,8 @@
                     <li class="journal-categories mb30">
                         <ul>
                             <li class="mb12"><label for="q_categories"><span class="input-required ">카테고리</span></label></li>
-                            <li><select id="q_categories" name="q_categories" required class="inputfield"   placeholder="카테고리를 선택해 주세요.">
-                                    <option value="">카테고리를 선택해 주세요.</option>
+                            <li><select id="q_categories" name="q_categories" required class="select-input"   placeholder="카테고리를 선택해 주세요.">
+                                    <option value="none" disabled selected>카테고리 선택</option>
                                     <optgroup label="Eat">
                                         <option value="meal">식사</option>
                                         <option value="coffee">커피/음료</option>
@@ -112,8 +106,8 @@
                     <li class="journal-payment-method mb30">
                         <ul>
                             <li class="mb12"><label for="q_payment-method"><span class="input-required ">결제 수단</span></label></li>
-                            <li><select id="q_payment-method" name="q_payment-method" required class="inputfield"   placeholder="결제 방법을 선택해 주세요.">
-                                  <option value="">결제 방법을 선택해 주세요.</option>     
+                            <li><select id="q_payment-method" name="q_payment-method" required class="select-input"   placeholder="결제 방법을 선택해 주세요.">
+                                  <option value="none" disabled selected>결제 방법 선택</option>     
                                     <option value="card">카드</option>
                                     <option value="cash">현금</option>
                                     <option value="others">기타</option>
@@ -123,7 +117,7 @@
                     </li>
                     <li class="journal-memo mb30">
                         <ul>
-                            <li class="mb12"><label for="q_memo"><span class="input-required ">금액</span></label></li>
+                            <li class="mb12"><label for="q_memo"><span class="input-required ">메모</span></label></li>
                             <li><textarea id="q_memo" name="q_memo" required    placeholder="메모를 입력해 주세요." class="textinput"></textarea>
                             </li>
                         </ul>
